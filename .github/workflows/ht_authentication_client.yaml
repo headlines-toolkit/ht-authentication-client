@@ -17,5 +17,5 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
       dart_sdk: 3.7.2
-      min_coverage: 75
+      min_coverage: 90
       coverage_excludes: "*.g.dart"
