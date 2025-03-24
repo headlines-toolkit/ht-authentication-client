@@ -6,8 +6,6 @@ The `ht_authentication_client` is a Dart package providing a robust and flexible
 *   **User Management:** Retrieve the currently authenticated user and manage their session.
 *   **Account Deletion:** Provide users with the ability to delete their accounts.
 
-This package handles the complexities of authentication, allowing you to focus on building your application's core features.
-
 ## Features
 
 *   **Multiple Authentication Methods:** Supports email/password, Google Sign-In, and anonymous authentication.
