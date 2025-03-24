@@ -30,38 +30,4 @@ To get started with the `ht_authentication_client`, you'll need:
           ref: main
     ```
 
-    Then run `dart pub get` or `flutter pub get`.
-
-## Usage
-
-```dart
-import 'package:ht_authentication_client/ht_authentication_client.dart';
-
-void main() async {
-  // Initialize the authentication client (replace with your configuration).
-  //  For example, you might have a concrete implementation like:
-  // final client = MyConcreteAuthenticationClient(config: myConfig);
-  const client = HtAuthenticationClient(); // Placeholder - Replace with your concrete implementation
-
-  // Example: Sign in with email and password.
-  try {
-    await client.signInWithEmailAndPassword(
-      email: 'test@example.com',
-      password: 'securePassword123',
-    );
-    print('User signed in successfully!');
-  } on EmailSignInException catch (e) {
-    print('Email sign-in failed: ${e.error}');
-  }
-
-  // Example: Get the current user.
-  client.user.listen((user) {
-    if (user.isAnonymous) {
-      print('User is anonymous');
-    } else {
-      print('User ID: ${user.uid}, Email: ${user.email}');
-    }
-  });
-}
-
-```
+    Then run `dart pub get`.
