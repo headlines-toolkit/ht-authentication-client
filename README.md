@@ -1,4 +1,4 @@
-The `ht_authentication_client` is a Dart package providing a robust and flexible authentication client for the Headlines Toolkit ecosystem. It offers a streamlined interface for integrating various authentication methods into your Dart and Flutter applications, including:
+Abstract class to be implemented by all future authentication clients. It supports:
 
 *   **Email/Password Authentication:** Securely sign in users with their email address and password.
 *   **Google Sign-In:** Integrate with Google's authentication services for a seamless login experience.
