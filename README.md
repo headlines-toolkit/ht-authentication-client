@@ -1,16 +1,3 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
 The `ht_authentication_client` is a Dart package providing a robust and flexible authentication client for the Headlines Toolkit ecosystem. It offers a streamlined interface for integrating various authentication methods into your Dart and Flutter applications, including:
 
 *   **Email/Password Authentication:** Securely sign in users with their email address and password.
@@ -39,7 +26,10 @@ To get started with the `ht_authentication_client`, you'll need:
 
     ```yaml
     dependencies:
-      ht_authentication_client: ^<latest_version>
+      ht_headlines_client:
+        git:
+          url: https://github.com/headlines-toolkit/ht-authentication-client.git
+          ref: main
     ```
 
     Then run `dart pub get` or `flutter pub get`.
@@ -77,10 +67,3 @@ void main() async {
 }
 
 ```
-
-## Additional information
-
-*   **Documentation:** [Link to comprehensive documentation]
-*   **Issues:** [Link to issue tracker on GitHub]
-*   **Contributing:** Contributions are welcome! Please see our [contributing guidelines](link to contributing guidelines).
-*   **License:** [Specify the license, e.g., MIT]
