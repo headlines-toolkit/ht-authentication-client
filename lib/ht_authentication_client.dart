@@ -4,3 +4,4 @@
 library;
 
 export 'src/ht_authentication_client.dart';
+export 'src/models/models.dart';
