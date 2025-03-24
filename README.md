@@ -24,7 +24,7 @@ To get started with the `ht_authentication_client`, you'll need:
 
     ```yaml
     dependencies:
-      ht_headlines_client:
+      ht_authentication_client:
         git:
           url: https://github.com/headlines-toolkit/ht-authentication-client.git
           ref: main
