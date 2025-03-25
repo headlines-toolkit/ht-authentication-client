@@ -56,9 +56,7 @@ class User extends Equatable {
   final String? photoUrl;
 
   /// The user's authentication status.
-  @JsonKey(
-    unknownEnumValue: AuthenticationStatus.unauthenticated,
-  )
+  @JsonKey(unknownEnumValue: AuthenticationStatus.unauthenticated)
   final AuthenticationStatus authenticationStatus;
 
   /// Whether the user's email address has been verified.

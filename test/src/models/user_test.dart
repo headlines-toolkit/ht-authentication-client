@@ -10,7 +10,6 @@ void main() {
         email: 'test@example.com',
         displayName: 'Test User',
         photoUrl: 'https://example.com/photo.jpg',
-        authenticationStatus: AuthenticationStatus.unauthenticated,
         isEmailVerified: true,
       );
       final user2 = User(
@@ -18,7 +17,6 @@ void main() {
         email: 'test@example.com',
         displayName: 'Test User',
         photoUrl: 'https://example.com/photo.jpg',
-        authenticationStatus: AuthenticationStatus.unauthenticated,
         isEmailVerified: true,
       );
       expect(user1, user2);
@@ -30,7 +28,6 @@ void main() {
         email: 'test@example.com',
         displayName: 'Test User',
         photoUrl: 'https://example.com/photo.jpg',
-        authenticationStatus: AuthenticationStatus.unauthenticated,
         isEmailVerified: true,
       );
       final user2 = User(
