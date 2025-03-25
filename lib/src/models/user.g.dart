@@ -11,7 +11,13 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
   email: json['email'] as String?,
   displayName: json['displayName'] as String?,
   photoUrl: json['photoUrl'] as String?,
-  isAnonymous: json['isAnonymous'] as bool? ?? false,
+  authenticationStatus:
+      $enumDecodeNullable(
+        _$AuthenticationStatusEnumMap,
+        json['authenticationStatus'],
+        unknownValue: AuthenticationStatus.unauthenticated,
+      ) ??
+      AuthenticationStatus.unauthenticated,
   isEmailVerified: json['isEmailVerified'] as bool? ?? false,
   isNewUser: json['isNewUser'] as bool? ?? false,
 );
@@ -21,7 +27,14 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'email': instance.email,
   'displayName': instance.displayName,
   'photoUrl': instance.photoUrl,
-  'isAnonymous': instance.isAnonymous,
+  'authenticationStatus':
+      _$AuthenticationStatusEnumMap[instance.authenticationStatus]!,
   'isEmailVerified': instance.isEmailVerified,
   'isNewUser': instance.isNewUser,
+};
+
+const _$AuthenticationStatusEnumMap = {
+  AuthenticationStatus.unauthenticated: 'unauthenticated',
+  AuthenticationStatus.anonymous: 'anonymous',
+  AuthenticationStatus.authenticated: 'authenticated',
 };

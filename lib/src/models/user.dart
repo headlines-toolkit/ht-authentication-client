@@ -4,11 +4,26 @@ import 'package:uuid/uuid.dart';
 
 part 'user.g.dart';
 
+/// Authentication status enum.
+enum AuthenticationStatus {
+  /// Unauthenticated.
+  @JsonValue('unauthenticated')
+  unauthenticated,
+
+  /// Anonymous.
+  @JsonValue('anonymous')
+  anonymous,
+
+  /// Authenticated.
+  @JsonValue('authenticated')
+  authenticated,
+}
+
 /// {@template user}
 /// User model
 ///
 /// Contains user information, including [uid], [email], [displayName],
-/// [photoUrl], [isAnonymous], [isEmailVerified], and [isNewUser].
+/// [photoUrl], [isEmailVerified], and [isNewUser].
 /// {@endtemplate}
 @JsonSerializable()
 class User extends Equatable {
@@ -18,7 +33,7 @@ class User extends Equatable {
     this.email,
     this.displayName,
     this.photoUrl,
-    this.isAnonymous = false,
+    this.authenticationStatus = AuthenticationStatus.unauthenticated,
     this.isEmailVerified = false,
     this.isNewUser = false,
   }) : uid = uid ?? const Uuid().v4();
@@ -40,8 +55,11 @@ class User extends Equatable {
   /// URL of the user's profile photo.
   final String? photoUrl;
 
-  /// Whether the user is anonymous.
-  final bool isAnonymous;
+  /// The user's authentication status.
+  @JsonKey(
+    unknownEnumValue: AuthenticationStatus.unauthenticated,
+  )
+  final AuthenticationStatus authenticationStatus;
 
   /// Whether the user's email address has been verified.
   final bool isEmailVerified;
@@ -58,8 +76,8 @@ class User extends Equatable {
     email,
     displayName,
     photoUrl,
-    isAnonymous,
     isEmailVerified,
     isNewUser,
+    authenticationStatus,
   ];
 }
