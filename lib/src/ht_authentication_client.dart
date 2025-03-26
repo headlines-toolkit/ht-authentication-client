@@ -18,12 +18,20 @@ abstract class AuthException extends Equatable implements Exception {
   List<Object?> get props => [error, stackTrace];
 }
 
-/// {@template email_sign_in_exception}
-/// Exception thrown when email sign-in fails.
+/// {@template send_sign_in_link_exception}
+/// Exception thrown when sending the sign-in link fails.
 /// {@endtemplate}
-class EmailSignInException extends AuthException {
-  /// {@macro email_sign_in_exception}
-  const EmailSignInException(super.error, super.stackTrace);
+class SendSignInLinkException extends AuthException {
+  /// {@macro send_sign_in_link_exception}
+  const SendSignInLinkException(super.error, super.stackTrace);
+}
+
+/// {@template invalid_sign_in_link_exception}
+/// Exception thrown when the sign-in link is invalid or expired.
+/// {@endtemplate}
+class InvalidSignInLinkException extends AuthException {
+  /// {@macro invalid_sign_in_link_exception}
+  const InvalidSignInLinkException(super.error, super.stackTrace);
 }
 
 /// {@template google_sign_in_exception}
@@ -66,14 +74,6 @@ class UserNotFoundException extends AuthException {
   const UserNotFoundException(super.error, super.stackTrace);
 }
 
-/// {@template invalid_credentials_exception}
-/// Exception thrown when invalid credentials are provided.
-/// {@endtemplate}
-class InvalidCredentialsException extends AuthException {
-  /// {@macro invalid_credentials_exception}
-  const InvalidCredentialsException(super.error, super.stackTrace);
-}
-
 /// {@template ht_authentication_client}
 /// An abstract authentication client that supports email login, Google login,
 /// anonymous login, logout, delete account, and provides a stream of user
@@ -86,12 +86,21 @@ abstract class HtAuthenticationClient {
   /// Stream of [User] authentication state.
   Stream<User> get user;
 
-  /// Signs in with email and password.
+  /// Sends a sign-in link to the provided email address.
   ///
-  /// Throws an [EmailSignInException] if sign-in fails.
-  Future<void> signInWithEmailAndPassword({
+  /// Throws a [SendSignInLinkException] if sending the link fails.
+  Future<void> sendSignInLinkToEmail({required String email});
+
+  /// Checks if the incoming link is a valid sign-in link.
+  Future<bool> isSignInWithEmailLink({required String emailLink});
+
+  /// Signs in the user using the email and the validated sign-in link.
+  ///
+  /// Throws an [InvalidSignInLinkException] if the link is invalid or expired.
+  /// Throws a [UserNotFoundException] if the email is not found (optional).
+  Future<void> signInWithEmailLink({
     required String email,
-    required String password,
+    required String emailLink,
   });
 
   /// Signs in with Google.
