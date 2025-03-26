@@ -5,10 +5,18 @@ import 'package:ht_authentication_client/ht_authentication_client.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('EmailSignInException', () {
+  group('SendSignInLinkException', () {
     test('supports value equality', () {
-      const exception1 = EmailSignInException('error', StackTrace.empty);
-      const exception2 = EmailSignInException('error', StackTrace.empty);
+      const exception1 = SendSignInLinkException('error', StackTrace.empty);
+      const exception2 = SendSignInLinkException('error', StackTrace.empty);
+      expect(exception1, exception2);
+    });
+  });
+
+  group('InvalidSignInLinkException', () {
+    test('supports value equality', () {
+      const exception1 = InvalidSignInLinkException('error', StackTrace.empty);
+      const exception2 = InvalidSignInLinkException('error', StackTrace.empty);
       expect(exception1, exception2);
     });
   });
@@ -49,14 +57,6 @@ void main() {
     test('supports value equality', () {
       const exception1 = UserNotFoundException('error', StackTrace.empty);
       const exception2 = UserNotFoundException('error', StackTrace.empty);
-      expect(exception1, exception2);
-    });
-  });
-
-  group('InvalidCredentialsException', () {
-    test('supports value equality', () {
-      const exception1 = InvalidCredentialsException('error', StackTrace.empty);
-      const exception2 = InvalidCredentialsException('error', StackTrace.empty);
       expect(exception1, exception2);
     });
   });
