@@ -19,8 +19,7 @@ Abstract class to be implemented by all future authentication clients. It suppor
 To get started with the `ht_authentication_client`, you'll need:
 
 1.  A Dart or Flutter project.
-2.  An active Headlines Toolkit backend instance (see [link to backend setup documentation]).
-3.  Add `ht_authentication_client` as a dependency in your `pubspec.yaml`:
+2.  Add `ht_authentication_client` as a dependency in your `pubspec.yaml`:
 
     ```yaml
     dependencies:
