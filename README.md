@@ -1,6 +1,6 @@
 Abstract class to be implemented by all future authentication clients. It supports:
 
-*   **Email/Password Authentication:** Securely sign in users with their email address and password.
+*   **Passwordless Sign-in (Magic Link):** Securely sign in users using a link sent to their email address.
 *   **Google Sign-In:** Integrate with Google's authentication services for a seamless login experience.
 *   **Anonymous Authentication:** Allow users to access your app without creating an account.
 *   **User Management:** Retrieve the currently authenticated user and manage their session.
@@ -8,10 +8,10 @@ Abstract class to be implemented by all future authentication clients. It suppor
 
 ## Features
 
-*   **Multiple Authentication Methods:** Supports email/password, Google Sign-In, and anonymous authentication.
+*   **Multiple Authentication Methods:** Supports passwordless (magic link), Google Sign-In, and anonymous authentication.
 *   **User Session Management:** Provides a stream of the current user's authentication state.
 *   **Secure Authentication:** Implements best practices for secure authentication handling.
-*   **Error Handling:** Defines specific exception classes for various authentication failures.
+*   **Error Handling:** Defines specific exception classes for various authentication failures (e.g., `SendSignInLinkException`, `InvalidSignInLinkException`, `GoogleSignInException`).
 *   **Extensible Design:** Designed as an abstract class (`HtAuthenticationClient`) to allow for custom implementations.
 
 ## Getting started
