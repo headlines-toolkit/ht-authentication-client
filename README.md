@@ -1,3 +1,5 @@
+> **Note:** This package is being archived. Please use the successor package [`ht-auth-client`](https://github.com/headlines-toolkit/ht-auth-client) instead.
+
 Abstract class to be implemented by all future authentication clients. It supports:
 
 *   **Passwordless Sign-in (Magic Link):** Securely sign in users using a link sent to their email address.
